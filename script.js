@@ -1,10 +1,11 @@
-function setup() {
-    let numberOfPlayers = prompt("Insert number of players",);
-    let players = [];
-    let winningAmount = prompt("Set the winning amount of points",);
-    let input = document.querySelector("#input");
-    let btn = document.querySelector("#btn");
+const setup = document.querySelector(".setup");
+let numberOfPlayers = 0;
+let players = [];
+let player = [];
 
+setup.addEventListener("click", () =>  {
+    numberOfPlayers = prompt("Insert number of players",);
+    let winningAmount = prompt("Set the winning amount of points",);
 
     document.getElementsByTagName("main")[0].innerHTML = "<h2>Scores</h2><table id='scoreTable'><tr id='scoreTableHeader'><th>Round</th>";
     
@@ -13,29 +14,31 @@ function setup() {
         document.getElementById("scoreTableHeader").innerHTML += ("<th>" + players[i] + "</th>");
     }
 
-
-
     document.getElementsByTagName("main").innerHTML += "</tr></table>";
-}
+});
 
-function rounds() {
 
-    for ( let round = 1; round < 3; round++) {
-        document.getElementById("scoreTable").innerHTML += "<tr>";
+const round = document.querySelector(".round");
+let roundNum = 1;
 
-        for ( let i = 0; i < numberOfPlayers; i++ ) {   
-            btn.addEventListener("click", () => {
-                // players[i][round] = input.value;  
-                document.getElementById("scoreTable").innerHTML += "<td>" + 4 + "</td>";
-            });   
+round.addEventListener("click", () => {
+    document.getElementById("scoreTable").innerHTML += "<tr><td>" + roundNum + "</td>";
 
-        }
-        document.getElementById("scoreTable").innerHTML += "</tr>"
+    for ( let playerNum = 0; playerNum < numberOfPlayers; playerNum++ ) {
+        //player[i][roundNum] = prompt("insert Player " + (i+1) + "'s score",);
+        
+        // btn.addEventListener("click", () => {
+        //     // players[i][round] = input.value;  
+        //document.getElementById("scoreTable").innerHTML += "<td>" + playerNum + "</td>";
+        // });   
+
     }
+    document.getElementById("scoreTable").innerHTML += "</tr>";
+
     
     //document.getElementById("scoreTable").innerHTML = "<th>" + numberOfPlayers + "</th>";
-
-}
+    roundNum += 1;
+});
 
 
 
