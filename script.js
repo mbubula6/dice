@@ -2,10 +2,12 @@ const setup = document.querySelector(".setup");
 let numberOfPlayers = 0;
 let players = [];
 let player = [];
+let roundNum = 0;
 
 setup.addEventListener("click", () =>  {
     numberOfPlayers = prompt("Insert number of players",);
     let winningAmount = prompt("Set the winning amount of points",);
+    roundNum = 1;
 
     document.getElementsByTagName("main")[0].innerHTML = "<h2>Scores</h2><table id='scoreTable'><tr id='scoreTableHeader'><th>Round</th>";
     
@@ -18,8 +20,7 @@ setup.addEventListener("click", () =>  {
 });
 
 
-const round = document.querySelector(".round");
-let roundNum = 1;
+const round = document.querySelector(".round"); 
 
 round.addEventListener("click", () => {
     document.getElementById("scoreTable").innerHTML += "<tr><td>" + roundNum + "</td>";
