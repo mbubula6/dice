@@ -1,3 +1,4 @@
+document.addEventListener("DOMContentLoaded", (event) => {
 const setup = document.querySelector(".setup");
 let numberOfPlayers = 0;
 let players = [];
@@ -41,5 +42,6 @@ round.addEventListener("click", () => {
     roundNum += 1;
 });
 
+});
 
 
