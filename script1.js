@@ -1,27 +1,24 @@
-document.addEventListener("DOMContentLoaded", (event) => {
+    alert("huh?");
     
-    const setup1 = document.querySelector(".setup1");
+    const setup1 = document.getElementById("setup1");
 
-    setup1.addEventListener("click", () =>  {
+    setup1.addEventListener("click", () => {
         
         let numberOfPlayers = prompt("Insert number of players",);
+        let playerName = [];
 
-        for ( i = 0; i = numberOfPlayers; i ++) {
+        const table = document.getElementById("table");
 
-        })
+        const newRow = document.createElement("tr");
+        table.appendChild(newRow);
+
+        for ( row = 0; row < numberOfPlayers; row++) {
+            playerName[row] = prompt("Insert player " + row + " name:", );
+            const newCell = document.createElement("th");
+            newRow.appendChild(newCell);
+            newCell.insertAdjacentText("beforeend", playerName[row]);
+ 
+        }
 
 
     });
-
-
-
-
-
-
-
-
-
-
-
-
-});
