@@ -40,7 +40,8 @@
         for ( i = 0; i < numberOfPlayers; i++) {
             const cell = document.createElement("td");
             newRow.appendChild(cell);
-
+            const input = document.createElement("input");
+            cell.appendChild(input);
 
         }
 
