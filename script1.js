@@ -4,9 +4,11 @@ const setup1 = document.getElementById("setup1");
 const round = document.getElementById("round");
 const table = document.getElementById("table");
 const body = document.querySelector("body");
+const scores = document.getElementById("scores");
 
 let roundNum = 0;
 let numberOfPlayers;
+let playerScore = [];
 
 
 setup1.addEventListener("click", () => {
@@ -25,7 +27,19 @@ setup1.addEventListener("click", () => {
         const cell = document.createElement("th");
         newRow.appendChild(cell);
         cell.insertAdjacentText("beforeend", playerName[row]);
+        playerScore[row] = 0;
     }
+
+    const cellScore = document.createElement("th");
+    scores.appendChild(cellScore);
+    cellScore.insertAdjacentText("beforeend", "Score");
+
+    for ( row = 0; row < numberOfPlayers; row++) {
+        const cell = document.createElement("th");
+        scores.appendChild(cell);
+        cell.insertAdjacentText("beforeend", playerScore[row]);
+    }
+
     
     setup1.remove();
 });
