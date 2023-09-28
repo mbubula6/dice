@@ -10,7 +10,6 @@ let roundNum = 0;
 let numberOfPlayers;
 let playerScore = [];
 
-
 setup1.addEventListener("click", () => {
     numberOfPlayers = prompt("Insert number of players",);
     let playerName = [];
@@ -55,6 +54,7 @@ round.addEventListener("click", () => {
 
     for ( i = 0; i < numberOfPlayers; i++) {
         const cell = document.createElement("td");
+        cell.id = "cell-" + roundNum + "-" + i;
         newRow.appendChild(cell);
         const input = document.createElement("input");
         cell.appendChild(input);
