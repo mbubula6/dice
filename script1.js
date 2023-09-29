@@ -50,22 +50,25 @@ round.addEventListener("click", () => {
     table.appendChild(newRow);
 
     const cell = document.createElement("td");
-        newRow.appendChild(cell);
-        cell.insertAdjacentText("beforeend", roundNum);
+    newRow.appendChild(cell);
+    cell.insertAdjacentText("beforeend", roundNum);
 
     for ( i = 0; i < numberOfPlayers; i++) {
         const cell = document.createElement("td");
+        cell.style.width = 100/numberOfPlayers + "%";
         newRow.appendChild(cell);
         const input = document.createElement("input");
+        input.style.width = "100%";
         input.id = "cell-" + roundNum + "-" + i;
         cell.appendChild(input);
 
         if ( roundNum > 1 ) {
             const thatInput = document.querySelector("#cell-" + (roundNum-1) + "-" + i);
-            playerScore[i] += parseInt(thatInput.value);
-            console.log(playerScore);
-            document.getElementById("score-player-" + i).innerHTML = playerScore[i];
-
+            
+            if ( thatInput.value != "") {
+                playerScore[i] += parseInt(thatInput.value);
+                document.getElementById("score-player-" + i).innerHTML = playerScore[i];
+            }
         }
     }
 
@@ -73,11 +76,11 @@ round.addEventListener("click", () => {
     inputs.forEach((input) => {
         input.addEventListener("input", () => {
         
-            if ( input.value == "") {
-                body.style.backgroundColor = "red";
-            } else {
-                body.style.backgroundColor = "blue";
-            }
+            // if ( input.value == "") {
+            //     body.style.backgroundColor = "red";
+            // } else {
+            //     body.style.backgroundColor = "blue";
+            // }
         });
     });
 });
