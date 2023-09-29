@@ -54,9 +54,9 @@ round.addEventListener("click", () => {
 
     for ( i = 0; i < numberOfPlayers; i++) {
         const cell = document.createElement("td");
-        cell.id = "cell-" + roundNum + "-" + i;
         newRow.appendChild(cell);
         const input = document.createElement("input");
+        input.id = "cell-" + roundNum + "-" + i;
         cell.appendChild(input);
 
     }
