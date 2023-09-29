@@ -1,5 +1,3 @@
-alert("huh?");
-
 const setup1 = document.getElementById("setup1");
 const round = document.getElementById("round");
 const table = document.getElementById("table");
@@ -64,6 +62,7 @@ round.addEventListener("click", () => {
 
         if ( roundNum > 1 ) {
             const thatInput = document.querySelector("#cell-" + (roundNum-1) + "-" + i);
+            thatInput.setAttribute("readonly",true);
             
             if ( thatInput.value != "") {
                 playerScore[i] += parseInt(thatInput.value);
