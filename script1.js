@@ -35,6 +35,7 @@ setup1.addEventListener("click", () => {
 
     for ( row = 0; row < numberOfPlayers; row++) {
         const cell = document.createElement("th");
+        cell.id = "score-player-" + row;
         scores.appendChild(cell);
         cell.insertAdjacentText("beforeend", playerScore[row]);
     }
@@ -59,6 +60,13 @@ round.addEventListener("click", () => {
         input.id = "cell-" + roundNum + "-" + i;
         cell.appendChild(input);
 
+        if ( roundNum > 1 ) {
+            const thatInput = document.querySelector("#cell-" + (roundNum-1) + "-" + i);
+            playerScore[i] += parseInt(thatInput.value);
+            console.log(playerScore);
+            document.getElementById("score-player-" + i).innerHTML = playerScore[i];
+
+        }
     }
 
     const inputs = document.querySelectorAll("input");
