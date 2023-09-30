@@ -64,10 +64,10 @@ round.addEventListener("click", () => {
             const thatInput = document.querySelector("#cell-" + (roundNum-1) + "-" + i);
             thatInput.setAttribute("readonly",true);
             
-            if ( thatInput.value != "") {
-                playerScore[i] += parseInt(thatInput.value);
-                document.getElementById("score-player-" + i).innerHTML = playerScore[i];
-            }
+            // if ( thatInput.value != "") {
+            //     playerScore[i] += parseInt(thatInput.value);
+            //     document.getElementById("score-player-" + i).innerHTML = playerScore[i];
+            // }
         }
     }
 
@@ -75,6 +75,22 @@ round.addEventListener("click", () => {
     inputs.forEach((input) => {
         input.addEventListener("input", () => {
         
+            for ( i = 0; i < numberOfPlayers; i++ ) {
+                playerScore[i] = 0;
+                
+                for ( j = 0; j < roundNum; j++ ) {
+                    let thatInput = document.querySelector("#cell-" + (j+1) + "-" + i);
+                
+                    if ( thatInput.value != "") {
+                        playerScore[i] += parseInt(thatInput.value);
+                        document.getElementById("score-player-" + i).innerHTML = playerScore[i];
+                    }
+                }
+            }
+
+
+
+
             // if ( input.value == "") {
             //     body.style.backgroundColor = "red";
             // } else {
