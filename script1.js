@@ -7,10 +7,12 @@ const scores = document.getElementById("scores");
 let roundNum = 0;
 let numberOfPlayers;
 let playerScore = [];
+let winningAmount;
 
 setup1.addEventListener("click", () => {
     numberOfPlayers = prompt("Insert number of players",);
     let playerName = [];
+    winningAmount = prompt("Insert winning amount of points",);
 
     const newRow = document.createElement("tr");
     table.appendChild(newRow);
@@ -59,6 +61,10 @@ round.addEventListener("click", () => {
         input.style.width = "100%";
         input.id = "cell-" + roundNum + "-" + i;
         cell.appendChild(input);
+        
+        if ( playerScore[i] >= winningAmount ) {
+            alert("Congrats! Player " + (i+1) + " won!");
+        }
 
         if ( roundNum > 1 ) {
             const thatInput = document.querySelector("#cell-" + (roundNum-1) + "-" + i);
